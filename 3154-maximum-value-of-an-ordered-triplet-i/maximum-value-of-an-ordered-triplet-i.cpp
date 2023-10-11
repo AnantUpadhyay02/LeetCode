@@ -14,6 +14,10 @@ public:
                 }
             }
         }
-        return mx > 0 ? mx : 0;
+        
+        if(mx<0){
+                return 0;
+            }
+        return mx;
     }
 };
