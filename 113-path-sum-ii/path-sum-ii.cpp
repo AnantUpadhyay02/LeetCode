@@ -22,6 +22,8 @@ public:
             if(currSum == targetSum){
                 ans.push_back(path);
             }
+            path.pop_back();
+            currSum -= root->val;
             return;
         }
 
@@ -31,6 +33,10 @@ public:
 
         solve(root->left, targetSum, currSum, path, ans);
         solve(root->right, targetSum, currSum, path, ans);
+
+        // back tracking
+        path.pop_back();
+        currSum-=root->val;
     }
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
         vector<vector<int>> ans;
